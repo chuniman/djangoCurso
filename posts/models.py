@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    profile = models.ForeignKey('users.Profile', on_delete=models.CASCADE,blank=True,null=True)
+
     title = models.CharField(max_length=100)
     photo = models.ImageField(upload_to='posts/photos',blank=True,null=True)
 
